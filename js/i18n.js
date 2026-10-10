@@ -93,7 +93,7 @@ const TRANSLATIONS = {
     pricing_title: "Вартість друку",
     pricing_desc: "Жодних прихованих переплат. У вартість уже входить сам преміальний чохол і нанесення вашого фото.",
     price_card_1_title: "Стандартний Друк",
-    price_card_1_cost: "249 грн",
+    price_card_1_cost: "600 грн",
     price_card_1_sub: "Класичний матовий або глянець",
     price_card_1_f1: "Чохол під вашу модель смартфона",
     price_card_1_f2: "Будь-яке ваше фото або картинка",
@@ -103,7 +103,7 @@ const TRANSLATIONS = {
 
     price_card_2_badge: "🔥 ХІТ ПРОДАЖІВ",
     price_card_2_title: "Преміум Soft-Touch + Лак",
-    price_card_2_cost: "299 грн",
+    price_card_2_cost: "600 грн",
     price_card_2_sub: "Ультрачіткість та захисне покриття",
     price_card_2_f1: "Високоякісний протиударний чохол",
     price_card_2_f2: "Вибірковий глянцевий 3D-лак",
@@ -112,7 +112,7 @@ const TRANSLATIONS = {
     price_card_2_btn: "Обрати в автоматі",
 
     price_card_3_title: "Парний сет (2 чохли)",
-    price_card_3_cost: "499 грн",
+    price_card_3_cost: "1 100 грн",
     price_card_3_sub: "Для закоханих або друзів",
     price_card_3_f1: "2 чохли на будь-які моделі телефонів",
     price_card_3_f2: "Єдина композиція / парні фото",
@@ -248,7 +248,7 @@ const TRANSLATIONS = {
     pricing_title: "Стоимость печати",
     pricing_desc: "Никаких скрытых переплат. В стоимость уже входит сам премиальный чехол и нанесение вашего фото.",
     price_card_1_title: "Стандартная Печать",
-    price_card_1_cost: "249 грн",
+    price_card_1_cost: "600 грн",
     price_card_1_sub: "Классический матовый или глянец",
     price_card_1_f1: "Чехол под вашу модель смартфона",
     price_card_1_f2: "Любое ваше фото или картинка",
@@ -258,7 +258,7 @@ const TRANSLATIONS = {
 
     price_card_2_badge: "🔥 ХИТ ПРОДАЖ",
     price_card_2_title: "Премиум Soft-Touch + Лак",
-    price_card_2_cost: "299 грн",
+    price_card_2_cost: "600 грн",
     price_card_2_sub: "Ультрачеткость и защитное покрытие",
     price_card_2_f1: "Высококачественный противоударный чехол",
     price_card_2_f2: "Выборочный глянцевый 3D-лак",
@@ -267,7 +267,7 @@ const TRANSLATIONS = {
     price_card_2_btn: "Выбрать в автомате",
 
     price_card_3_title: "Парный сет (2 чехла)",
-    price_card_3_cost: "499 грн",
+    price_card_3_cost: "1 100 грн",
     price_card_3_sub: "Для влюбленных или друзей",
     price_card_3_f1: "2 чехла на любые модели телефонов",
     price_card_3_f2: "Единая композиция / парные фото",

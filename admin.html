@@ -252,15 +252,15 @@
         <div class="loc-manage-grid">
           <div class="admin-form-group">
             <label>Стандартний друк (матовий/глянець):</label>
-            <input type="text" id="price-standard" class="admin-input" placeholder="249 грн">
+            <input type="text" id="price-standard" class="admin-input" placeholder="600 грн">
           </div>
           <div class="admin-form-group">
             <label>Преміум Soft-Touch + 3D-Лак:</label>
-            <input type="text" id="price-premium" class="admin-input" placeholder="299 грн">
+            <input type="text" id="price-premium" class="admin-input" placeholder="600 грн">
           </div>
           <div class="admin-form-group">
             <label>Парний сет (2 чохли):</label>
-            <input type="text" id="price-pair" class="admin-input" placeholder="499 грн">
+            <input type="text" id="price-pair" class="admin-input" placeholder="1 100 грн">
           </div>
         </div>
       </div>
@@ -417,8 +417,8 @@
 
       // Заповнюємо ціни
       if (appConfig.pricing) {
-        document.getElementById("price-standard").value = appConfig.pricing.standard || "249 грн";
-        document.getElementById("price-premium").value = appConfig.pricing.premium || "299 грн";
+        document.getElementById("price-standard").value = appConfig.pricing.standard || "600 грн";
+        document.getElementById("price-premium").value = appConfig.pricing.premium || "600 грн";
         document.getElementById("price-pair").value = appConfig.pricing.pair || "499 грн";
       }
 
@@ -558,3 +558,4 @@
   </script>
 </body>
 </html>
+
