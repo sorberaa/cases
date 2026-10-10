@@ -321,12 +321,28 @@ h1, h2, h3, h4 {
   font-size: 3.5rem;
   margin-bottom: 24px;
   letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.2;
 }
 
 .hero-title span {
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-title span:first-child,
+.hero-title span.title-white {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.2);
+}
+
+.hero-title span:last-child,
+.hero-title span.title-mint {
+  background: linear-gradient(135deg, #00f2a9 0%, #38bdf8 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 0 35px rgba(0, 242, 169, 0.45);
 }
 
 .hero-desc {
@@ -353,7 +369,7 @@ h1, h2, h3, h4 {
 
 .stat-item h3 {
   font-size: 1.8rem;
-  background: var(--accent-gradient);
+  background: linear-gradient(135deg, #00f2a9 0%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 4px;
@@ -1322,16 +1338,29 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 768px) {
+  .header {
+    height: 66px;
+  }
+  .logo-tag {
+    display: none;
+  }
+  .logo-img {
+    height: 34px;
+  }
+  .lang-btn {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+  }
   .nav-links {
     position: fixed;
-    top: 76px;
+    top: 66px;
     left: 0;
     right: 0;
-    background: #0f1118;
+    background: #0b1d22;
     flex-direction: column;
-    padding: 32px;
-    gap: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 28px 24px;
+    gap: 18px;
+    border-bottom: 1px solid rgba(0, 242, 169, 0.2);
     transform: translateY(-120%);
     transition: transform 0.3s ease;
   }
@@ -1340,15 +1369,65 @@ h1, h2, h3, h4 {
   }
   .burger-btn {
     display: block;
+    padding: 4px;
   }
   .header-cta {
     display: none;
   }
+
+  .hero-section {
+    padding: 100px 0 50px 0;
+  }
   .hero-title {
     font-size: 2.2rem;
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    width: 100%;
+    padding: 14px 20px;
+  }
+  .hero-stats {
+    gap: 14px;
+    padding-top: 24px;
+  }
+  .stat-item h3 {
+    font-size: 1.55rem;
   }
   .section-title {
-    font-size: 2rem;
+    font-size: 1.9rem;
+  }
+
+  /* Floating Contact Buttons on Mobile */
+  .floating-widget {
+    bottom: 20px;
+    right: 16px;
+    gap: 10px;
+  }
+  .floating-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-title {
+    font-size: 1.95rem;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
