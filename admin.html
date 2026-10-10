@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VendiGo — Панель керування мережею автоматів</title>
+  
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .admin-wrapper {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+    .admin-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .login-container {
+      max-width: 440px;
+      margin: 100px auto;
+      padding: 44px 36px;
+      text-align: center;
+    }
+    .admin-form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .admin-form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .admin-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      color: #ffffff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .admin-input:focus {
+      border-color: var(--brand-mint);
+      box-shadow: 0 0 15px rgba(0, 242, 169, 0.3);
+    }
+    .tab-nav {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .tab-btn.active {
+      background: var(--accent-gradient);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(0, 242, 169, 0.3);
+    }
+    .tab-pane {
+      display: none;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+    .loc-manage-card {
+      padding: 24px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      background: rgba(12, 38, 44, 0.4);
+      position: relative;
+    }
+    .loc-manage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .loc-manage-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #f87171;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-danger:hover {
+      background: rgba(239, 68, 68, 0.3);
+    }
+    .btn-save-fixed {
+      position: sticky;
+      bottom: 24px;
+      margin-top: 40px;
+      z-index: 100;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .switch-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .switch-input {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--brand-mint);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── 1. Вхід в адмін-панель (Login Screen) ──────────────────── -->
+  <div id="login-section" class="admin-wrapper" style="display: none;">
+    <div class="glass-card login-container">
+      <img src="images/logo_white.png" alt="VendiGo Logo" style="height: 48px; margin-bottom: 20px;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Панель керування VendiGo</h2>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 28px;">Введіть логін та пароль адміністратора</p>
+
+      <form id="login-form">
+        <div class="admin-form-group">
+          <label>Логін:</label>
+          <input type="text" id="login-user" class="admin-input" placeholder="admin" required autocomplete="username">
+        </div>
+        <div class="admin-form-group">
+          <label>Пароль:</label>
+          <input type="password" id="login-pass" class="admin-input" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+        <div id="login-error" style="color: #f87171; font-size: 0.85rem; margin-bottom: 16px; display: none;"></div>
+        <button type="submit" class="btn-primary" style="width: 100%;">Увійти в панель</button>
+      </form>
+      <div style="margin-top: 24px;">
+        <a href="index.html" style="color: var(--text-muted); font-size: 0.85rem;">← Повернутися на головний сайт</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 2. Головний робочий простір адмінки (Dashboard) ────────── -->
+  <div id="dashboard-section" class="admin-wrapper" style="display: none;">
+    <div class="admin-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <img src="images/logo_white.png" alt="VendiGo" style="height: 38px;">
+        <div>
+          <h1 style="font-size: 1.4rem; font-weight: 800;">Керування мережею VendiGo</h1>
+          <p style="font-size: 0.8rem; color: var(--brand-mint);">● Онлайн-режим керування</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <a href="index.html" target="_blank" class="btn-secondary" style="padding: 10px 18px; font-size: 0.85rem;">
+          🌐 Відкрити сайт
+        </a>
+        <button type="button" id="btn-logout" class="btn-danger" style="padding: 10px 18px; font-size: 0.85rem;">
+          🚪 Вийти
+        </button>
+      </div>
+    </div>
+
+    <!-- Навігація по вкладках -->
+    <div class="tab-nav">
+      <button type="button" class="tab-btn active" data-tab="tab-locations">📍 Локації автоматів</button>
+      <button type="button" class="tab-btn" data-tab="tab-contacts">📞 Контакти та зв'язок</button>
+      <button type="button" class="tab-btn" data-tab="tab-pricing">💰 Ціни на чохли</button>
+      <button type="button" class="tab-btn" data-tab="tab-security">🔒 Зміна пароля</button>
+    </div>
+
+    <!-- Вкладка 1: Локації автоматів -->
+    <div id="tab-locations" class="tab-pane active">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div>
+          <h2 style="font-size: 1.3rem;">Список автоматів у торгових центрах</h2>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Додавайте нові точки, редагуйте адреси та перемикайте статуси</p>
+        </div>
+        <button type="button" id="btn-add-location" class="btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">
+          ➕ Додати новий автомат
+        </button>
+      </div>
+
+      <div id="locations-list-container">
+        <!-- Список автоматів генерується динамічно -->
+      </div>
+    </div>
+
+    <!-- Вкладка 2: Контакти та зв'язок -->
+    <div id="tab-contacts" class="tab-pane">
+      <div class="glass-card" style="padding: 32px;">
+        <h2 style="font-size: 1.3rem; margin-bottom: 20px;">Контактні дані мережі</h2>
+        <div class="loc-manage-grid">
+          <div class="admin-form-group">
+            <label>Telegram (нікнейм):</label>
+            <input type="text" id="contact-tg" class="admin-input" placeholder="@pentestyou">
+          </div>
+          <div class="admin-form-group">
+            <label>Телефон для дзвінків та зв'язку:</label>
+            <input type="text" id="contact-phone" class="admin-input" placeholder="+380678918905">
+          </div>
+          <div class="admin-form-group">
+            <label>Години роботи підтримки (UA):</label>
+            <input type="text" id="contact-hours-uk" class="admin-input" placeholder="Щодня, цілодобово 24/7">
+          </div>
+          <div class="admin-form-group">
+            <label>Години роботи підтримки (RU):</label>
+            <input type="text" id="contact-hours-ru" class="admin-input" placeholder="Ежедневно, круглосуточно 24/7">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Вкладка 3: Ціни -->
+    <div id="tab-pricing" class="tab-pane">
+      <div class="glass-card" style="padding: 32px;">
+        <h2 style="font-size: 1.3rem; margin-bottom: 20px;">Вартість друку на чохлах</h2>
+        <div class="loc-manage-grid">
+          <div class="admin-form-group">
+            <label>Стандартний друк (матовий/глянець):</label>
+            <input type="text" id="price-standard" class="admin-input" placeholder="249 грн">
+          </div>
+          <div class="admin-form-group">
+            <label>Преміум Soft-Touch + 3D-Лак:</label>
+            <input type="text" id="price-premium" class="admin-input" placeholder="299 грн">
+          </div>
+          <div class="admin-form-group">
+            <label>Парний сет (2 чохли):</label>
+            <input type="text" id="price-pair" class="admin-input" placeholder="499 грн">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Вкладка 4: Безпека -->
+    <div id="tab-security" class="tab-pane">
+      <div class="glass-card" style="padding: 32px; max-width: 500px;">
+        <h2 style="font-size: 1.3rem; margin-bottom: 20px;">Зміна пароля адміністратора</h2>
+        <div class="admin-form-group">
+          <label>Новий пароль:</label>
+          <input type="password" id="new-password" class="admin-input" placeholder="Введіть новий пароль">
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">Залиште поле порожнім, якщо не бажаєте змінювати пароль.</p>
+      </div>
+    </div>
+
+    <!-- Кнопка збереження -->
+    <div class="btn-save-fixed">
+      <button type="button" id="btn-save-all" class="btn-primary" style="padding: 16px 36px; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0, 242, 169, 0.5);">
+        💾 Зберегти всі зміни на сайті
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let appConfig = {
+      contacts: {},
+      pricing: {},
+      locations: []
+    };
+    let authToken = sessionStorage.getItem("vendigo_auth_token") || "";
+
+    // Ініціалізація
+    document.addEventListener("DOMContentLoaded", () => {
+      if (authToken) {
+        showDashboard();
+      } else {
+        showLogin();
+      }
+      initTabs();
+      initLoginHandler();
+      initSaveHandler();
+    });
+
+    function showLogin() {
+      document.getElementById("login-section").style.display = "block";
+      document.getElementById("dashboard-section").style.display = "none";
+    }
+
+    function showDashboard() {
+      document.getElementById("login-section").style.display = "none";
+      document.getElementById("dashboard-section").style.display = "block";
+      loadAdminConfig();
+    }
+
+    function initTabs() {
+      const tabs = document.querySelectorAll(".tab-btn");
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          tabs.forEach(t => t.classList.remove("active"));
+          document.querySelectorAll(".tab-pane").forEach(p => p.classList.remove("active"));
+          tab.classList.add("active");
+          const target = tab.getAttribute("data-tab");
+          document.getElementById(target).classList.add("active");
+        });
+      });
+
+      document.getElementById("btn-logout").addEventListener("click", () => {
+        sessionStorage.removeItem("vendigo_auth_token");
+        authToken = "";
+        showLogin();
+      });
+
+      document.getElementById("btn-add-location").addEventListener("click", () => {
+        const newId = "loc_" + Date.now();
+        appConfig.locations.unshift({
+          id: newId,
+          isOnline: true,
+          city_uk: "м. Тернопіль",
+          city_ru: "г. Тернополь",
+          mall_uk: "Новий ТЦ",
+          mall_ru: "Новый ТЦ",
+          address_uk: "Вкажіть адресу",
+          address_ru: "Укажите адрес",
+          landmark_uk: "1-й поверх",
+          landmark_ru: "1-й этаж",
+          hours_uk: "Щодня: 10:00 — 21:00",
+          hours_ru: "Ежедневно: 10:00 — 21:00",
+          google_maps: "https://maps.google.com",
+          badge_uk: "🟢 Працює зараз",
+          badge_ru: "🟢 Работает сейчас"
+        });
+        renderLocationsManager();
+      });
+    }
+
+    function initLoginHandler() {
+      const form = document.getElementById("login-form");
+      const errBox = document.getElementById("login-error");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        errBox.style.display = "none";
+        const user = document.getElementById("login-user").value.trim();
+        const pass = document.getElementById("login-pass").value.trim();
+
+        try {
+          const res = await fetch("/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username: user, password: pass })
+          });
+          const data = await res.json();
+          if (res.ok && data.token) {
+            authToken = data.token;
+            sessionStorage.setItem("vendigo_auth_token", authToken);
+            showDashboard();
+          } else {
+            errBox.textContent = data.message || "Невірний логін або пароль!";
+            errBox.style.display = "block";
+          }
+        } catch (err) {
+          // Fallback для чистого статичного режиму
+          if (user === "admin" && pass === "vendigo2026") {
+            authToken = "local-session";
+            sessionStorage.setItem("vendigo_auth_token", authToken);
+            showDashboard();
+          } else {
+            errBox.textContent = "Помилка зв'язку або невірний пароль!";
+            errBox.style.display = "block";
+          }
+        }
+      });
+    }
+
+    async function loadAdminConfig() {
+      try {
+        const res = await fetch("/api/config");
+        if (res.ok) {
+          appConfig = await res.json();
+        }
+      } catch (err) {
+        console.log("Loading default local config");
+      }
+
+      // Заповнюємо контакти
+      if (appConfig.contacts) {
+        document.getElementById("contact-tg").value = appConfig.contacts.telegram || "@pentestyou";
+        document.getElementById("contact-phone").value = appConfig.contacts.phone || "+380678918905";
+        document.getElementById("contact-hours-uk").value = appConfig.contacts.working_hours_uk || "Щодня, цілодобово 24/7";
+        document.getElementById("contact-hours-ru").value = appConfig.contacts.working_hours_ru || "Ежедневно, круглосуточно 24/7";
+      }
+
+      // Заповнюємо ціни
+      if (appConfig.pricing) {
+        document.getElementById("price-standard").value = appConfig.pricing.standard || "249 грн";
+        document.getElementById("price-premium").value = appConfig.pricing.premium || "299 грн";
+        document.getElementById("price-pair").value = appConfig.pricing.pair || "499 грн";
+      }
+
+      renderLocationsManager();
+    }
+
+    function renderLocationsManager() {
+      const container = document.getElementById("locations-list-container");
+      if (!container) return;
+
+      container.innerHTML = (appConfig.locations || []).map((loc, idx) => `
+        <div class="loc-manage-card" data-idx="${idx}">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 1.15rem; color: var(--brand-mint); font-weight: 700;">#${idx+1}. ${loc.mall_uk || 'Автомат'}</h3>
+            <label class="switch-wrapper">
+              <input type="checkbox" class="switch-input" ${loc.isOnline ? "checked" : ""} onchange="toggleOnlineStatus(${idx}, this.checked)">
+              <span style="font-size: 0.85rem; font-weight: 600;">${loc.isOnline ? "🟢 Працює" : "⏳ Скоро відкриття"}</span>
+            </label>
+          </div>
+
+          <div class="loc-manage-grid">
+            <div class="admin-form-group">
+              <label>Назва ТЦ (UA):</label>
+              <input type="text" class="admin-input" value="${loc.mall_uk || ''}" onchange="updateLocField(${idx}, 'mall_uk', this.value)">
+            </div>
+            <div class="admin-form-group">
+              <label>Назва ТЦ (RU):</label>
+              <input type="text" class="admin-input" value="${loc.mall_ru || ''}" onchange="updateLocField(${idx}, 'mall_ru', this.value)">
+            </div>
+            <div class="admin-form-group">
+              <label>Місто (UA):</label>
+              <input type="text" class="admin-input" value="${loc.city_uk || ''}" onchange="updateLocField(${idx}, 'city_uk', this.value)">
+            </div>
+            <div class="admin-form-group">
+              <label>Місто (RU):</label>
+              <input type="text" class="admin-input" value="${loc.city_ru || ''}" onchange="updateLocField(${idx}, 'city_ru', this.value)">
+            </div>
+            <div class="admin-form-group">
+              <label>Адреса (вулиця, номер) UA:</label>
+              <input type="text" class="admin-input" value="${loc.address_uk || ''}" onchange="updateLocField(${idx}, 'address_uk', this.value)">
+            </div>
+            <div class="admin-form-group">
+              <label>Адреса (вулиця, номер) RU:</label>
+              <input type="text" class="admin-input" value="${loc.address_ru || ''}" onchange="updateLocField(${idx}, 'address_ru', this.value)">
+            </div>
+            <div class="admin-form-group">
+              <label>Орієнтир в ТЦ (поверх, вхід):</label>
+              <input type="text" class="admin-input" value="${loc.landmark_uk || ''}" onchange="updateLocField(${idx}, 'landmark_uk', this.value)">
+            </div>
+            <div class="admin-form-group">
+              <label>Години роботи (напр: 10:00 — 21:00):</label>
+              <input type="text" class="admin-input" value="${loc.hours_uk || ''}" onchange="updateLocField(${idx}, 'hours_uk', this.value)">
+            </div>
+            <div class="admin-form-group" style="grid-column: span 2;">
+              <label>Посилання на Google Maps:</label>
+              <input type="text" class="admin-input" value="${loc.google_maps || ''}" onchange="updateLocField(${idx}, 'google_maps', this.value)">
+            </div>
+          </div>
+
+          <div class="loc-manage-actions">
+            <button type="button" class="btn-danger" onclick="deleteLocation(${idx})">🗑 Видалити цей автомат</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    window.toggleOnlineStatus = (idx, isOnline) => {
+      appConfig.locations[idx].isOnline = isOnline;
+      appConfig.locations[idx].badge_uk = isOnline ? "🟢 Працює зараз" : "⏳ Скоро відкриття";
+      appConfig.locations[idx].badge_ru = isOnline ? "🟢 Работает сейчас" : "⏳ Скоро открытие";
+      renderLocationsManager();
+    };
+
+    window.updateLocField = (idx, field, val) => {
+      appConfig.locations[idx][field] = val;
+    };
+
+    window.deleteLocation = (idx) => {
+      if (confirm("Точно видалити цей автомат зі списку?")) {
+        appConfig.locations.splice(idx, 1);
+        renderLocationsManager();
+      }
+    };
+
+    function initSaveHandler() {
+      const saveBtn = document.getElementById("btn-save-all");
+      saveBtn.addEventListener("click", async () => {
+        saveBtn.disabled = true;
+        saveBtn.textContent = "⏳ Збереження...";
+
+        // Оновлюємо контакти
+        appConfig.contacts = {
+          telegram: document.getElementById("contact-tg").value.trim(),
+          telegram_url: "https://t.me/" + document.getElementById("contact-tg").value.replace("@", "").trim(),
+          phone: document.getElementById("contact-phone").value.trim(),
+          working_hours_uk: document.getElementById("contact-hours-uk").value.trim(),
+          working_hours_ru: document.getElementById("contact-hours-ru").value.trim()
+        };
+
+        // Оновлюємо ціни
+        appConfig.pricing = {
+          standard: document.getElementById("price-standard").value.trim(),
+          premium: document.getElementById("price-premium").value.trim(),
+          pair: document.getElementById("price-pair").value.trim()
+        };
+
+        const newPass = document.getElementById("new-password").value.trim();
+        const payload = { ...appConfig };
+        if (newPass) payload.new_password = newPass;
+
+        try {
+          const res = await fetch("/api/config", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer " + authToken
+            },
+            body: JSON.stringify(payload)
+          });
+          const result = await res.json();
+          if (res.ok) {
+            alert("✅ Зміни успішно збережено на сервері!");
+            localStorage.setItem("vendigo_config_cache", JSON.stringify(appConfig));
+          } else {
+            alert("⚠️ " + (result.message || "Помилка збереження"));
+          }
+        } catch (err) {
+          // Fallback: зберігаємо локально
+          localStorage.setItem("vendigo_config_cache", JSON.stringify(appConfig));
+          alert("✅ Зміни збережено в пам'ять браузера!");
+        } finally {
+          saveBtn.disabled = false;
+          saveBtn.textContent = "💾 Зберегти всі зміни на сайті";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

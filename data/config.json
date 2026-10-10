@@ -1,0 +1,54 @@
+{
+  "admin": {
+    "username": "admin",
+    "password": "vendigo2026"
+  },
+  "contacts": {
+    "telegram": "@pentestyou",
+    "telegram_url": "https://t.me/pentestyou",
+    "phone": "+380678918905",
+    "working_hours_uk": "Щодня, цілодобово 24/7",
+    "working_hours_ru": "Ежедневно, круглосуточно 24/7"
+  },
+  "pricing": {
+    "standard": "249 грн",
+    "premium": "299 грн",
+    "pair": "499 грн"
+  },
+  "locations": [
+    {
+      "id": "ornava_ternopil",
+      "isOnline": true,
+      "city_uk": "м. Тернопіль",
+      "city_ru": "г. Тернополь",
+      "mall_uk": "ТЦ «Орнава»",
+      "mall_ru": "ТЦ «Орнава»",
+      "address_uk": "вул. Торговиця (колишня Живова), 15А",
+      "address_ru": "ул. Торговица (бывшая Живова), 15А",
+      "landmark_uk": "1-й поверх, біля центрального входу та ескалатора",
+      "landmark_ru": "1-й этаж, возле центрального входа и эскалатора",
+      "hours_uk": "Щодня: 10:00 — 21:00",
+      "hours_ru": "Ежедневно: 10:00 — 21:00",
+      "google_maps": "https://maps.google.com/?q=ТЦ+Орнава+Тернопіль+вулиця+Торговиця+15А",
+      "badge_uk": "🟢 Працює зараз",
+      "badge_ru": "🟢 Работает сейчас"
+    },
+    {
+      "id": "coming_soon_1",
+      "isOnline": false,
+      "city_uk": "м. Тернопіль",
+      "city_ru": "г. Тернополь",
+      "mall_uk": "ТЦ «Подоляни»",
+      "mall_ru": "ТЦ «Подоляны»",
+      "address_uk": "вул. Текстильна, 28Ч",
+      "address_ru": "ул. Текстильная, 28Ч",
+      "landmark_uk": "Готується до відкриття",
+      "landmark_ru": "Готовится к открытию",
+      "hours_uk": "Скоро відкриття!",
+      "hours_ru": "Скоро открытие!",
+      "google_maps": "https://maps.google.com/?q=ТЦ+Подоляни+Тернопіль",
+      "badge_uk": "⏳ Скоро відкриття",
+      "badge_ru": "⏳ Скоро открытие"
+    }
+  ]
+}
