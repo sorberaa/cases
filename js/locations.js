@@ -79,3 +79,4 @@ const VENDING_LOCATIONS = [
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { VENDING_LOCATIONS };
 }
+

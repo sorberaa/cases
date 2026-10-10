@@ -89,3 +89,4 @@
 python server.py
 ```
 І відкрийте в браузері: `http://localhost:8080` (або просто відкрийте `index.html`).
+

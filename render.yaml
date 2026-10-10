@@ -6,3 +6,4 @@ services:
     startCommand: "python server.py"
     plan: free
     autoDeploy: true
+
