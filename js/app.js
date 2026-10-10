@@ -1,15 +1,21 @@
 /**
  * =======================================================================
- * 📱 PRINTCASE EXPRESS — ОСНОВНА ЛОГІКА ДОДАТКУ ТА КОНСТРУКТОРА
+ * 📱 VENDIGO — ОСНОВНА ЛОГІКА ДОДАТКУ ТА КОНСТРУКТОРА
  * =======================================================================
  */
 
 // Каталог пресетів для швидкої примірки в конструкторі
 const PRESET_ARTWORKS = [
   {
+    id: "vendigo_mint",
+    name: "VendiGo Mint Flow",
+    bg: "radial-gradient(circle at 70% 30%, #00f2a9 0%, #0c3b43 55%, #05191c 100%)",
+    icon: "💎"
+  },
+  {
     id: "cyberpunk",
     name: "Cyber Neon City",
-    bg: "linear-gradient(135deg, #13002b 0%, #39006e 50%, #00f0ff 100%)",
+    bg: "linear-gradient(135deg, #0c3b43 0%, #00f2a9 100%)",
     icon: "🌆"
   },
   {
@@ -220,7 +226,7 @@ function initCaseDesigner() {
   if (generateBtn && modal) {
     generateBtn.addEventListener("click", () => {
       // Генеруємо випадковий 5-значний код для автомата
-      const randomCode = "PC-" + Math.floor(10000 + Math.random() * 90000);
+      const randomCode = "VG-" + Math.floor(10000 + Math.random() * 90000);
       if (codeValue) codeValue.textContent = randomCode;
       modal.classList.add("open");
     });

@@ -83,7 +83,7 @@ const TRANSLATIONS = {
     // Locations Section
     locations_badge: "📍 АДРЕСИ АВТОМАТІВ",
     locations_title: "Де знайти наші автомати?",
-    locations_desc: "Шукайте стильні автомати PrintCase у популярних торгових центрах. Мережа активно розширюється!",
+    locations_desc: "Шукайте стильні автомати VendiGo у популярних торгових центрах. Мережа активно розширюється!",
     locations_btn_route: "🗺 Маршрут у Google Maps",
     locations_landmark_label: "Орієнтир:",
     locations_hours_label: "Графік роботи:",
@@ -123,7 +123,7 @@ const TRANSLATIONS = {
     // B2B / Partnership
     partner_badge: "🤝 СПІВПРАЦЯ ТА ОРЕНДА",
     partner_title: "Встановіть автомат у вашому ТЦ",
-    partner_desc: "Шукаєте високоприбутковий і стильний сервіс для вашого торгового центру, бізнес-центру чи кінотеатру? Пропонуємо взаємовигідну оренду площі під автомат PrintCase.",
+    partner_desc: "Шукаєте високоприбутковий і стильний сервіс для вашого торгового центру, бізнес-центру чи кінотеатру? Пропонуємо взаємовигідну оренду площі під автомат VendiGo.",
     partner_f1_title: "Всього 1 кв.м площі",
     partner_f1_desc: "Потрібна лише стандартна розетка 220V та 1 кв.м для розміщення стильного кіоску.",
     partner_f2_title: "Потужний магніт для молоді",
@@ -157,7 +157,7 @@ const TRANSLATIONS = {
 
     // Footer
     footer_desc: "Перша українська мережа інноваційних автоматів швидкого фотодруку на чохлах смартфонів. Створи свій стиль за 3 хвилини!",
-    footer_rights: "Всі права захищено. PrintCase Express Network."
+    footer_rights: "Всі права захищено. VendiGo Network."
   },
 
   ru: {
@@ -238,7 +238,7 @@ const TRANSLATIONS = {
     // Locations Section
     locations_badge: "📍 АДРЕСА АВТОМАТОВ",
     locations_title: "Где найти наши автоматы?",
-    locations_desc: "Ищите стильные автоматы PrintCase в популярных торговых центрах. Сеть активно расширяется!",
+    locations_desc: "Ищите стильные автоматы VendiGo в популярных торговых центрах. Сеть активно расширяется!",
     locations_btn_route: "🗺 Маршрут в Google Maps",
     locations_landmark_label: "Ориентир:",
     locations_hours_label: "График работы:",
@@ -278,7 +278,7 @@ const TRANSLATIONS = {
     // B2B / Partnership
     partner_badge: "🤝 СОТРУДНИЧЕСТВО И АРЕНДА",
     partner_title: "Установите автомат в вашем ТЦ",
-    partner_desc: "Ищете высокодоходный и стильный сервис для вашего торгового центра, бизнес-центра или кинотеатра? Предлагаем взаимовыгодную аренду площади под автомат PrintCase.",
+    partner_desc: "Ищете высокодоходный и стильный сервис для вашего торгового центра, бизнес-центра или кинотеатра? Предлагаем взаимовыгодную аренду площади под автомат VendiGo.",
     partner_f1_title: "Всего 1 кв.м площади",
     partner_f1_desc: "Нужна только стандартная розетка 220V и 1 кв.м для размещения стильного киоска.",
     partner_f2_title: "Мощный магнит для молодежи",
@@ -312,14 +312,14 @@ const TRANSLATIONS = {
 
     // Footer
     footer_desc: "Первая украинская сеть инновационных автоматов быстрой фотопечати на чехлах смартфонов. Создай свой стиль за 3 минуты!",
-    footer_rights: "Все права защищены. PrintCase Express Network."
+    footer_rights: "Все права защищены. VendiGo Network."
   }
 };
 
 let currentLanguage = "uk";
 
 function getLanguage() {
-  const saved = localStorage.getItem("printcase_lang");
+  const saved = localStorage.getItem("vendigo_lang");
   if (saved === "uk" || saved === "ru") {
     return saved;
   }
@@ -330,7 +330,7 @@ function getLanguage() {
 function setLanguage(lang) {
   if (lang !== "uk" && lang !== "ru") return;
   currentLanguage = lang;
-  localStorage.setItem("printcase_lang", lang);
+  localStorage.setItem("vendigo_lang", lang);
   document.documentElement.lang = lang;
 
   // Оновлюємо тексти на сторінці
