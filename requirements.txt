@@ -1,0 +1,2 @@
+# No external dependencies required!
+# Standard Python 3 libraries are used (http.server, os, sys)

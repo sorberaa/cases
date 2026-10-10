@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrintCase Express — Мережа автоматів миттєвого фотодруку на чохлах</title>
+  <meta name="description" content="Друк твого фото на чохлі для будь-якого смартфона за 3 хвилини в інноваційних автоматах PrintCase. ТЦ «Орнава», Тернопіль.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ── Header / Navbar ──────────────────────────────────────── -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">📱</div>
+        <div class="logo-text">Print<span>Case</span><span class="logo-tag">EXPRESS</span></div>
+      </a>
+
+      <nav class="nav-links" id="nav-menu">
+        <a href="#how-it-works" class="nav-link" data-i18n="nav_how">Як це працює</a>
+        <a href="#designer" class="nav-link" data-i18n="nav_designer">Онлайн-примірка</a>
+        <a href="#quality" class="nav-link" data-i18n="nav_quality">Якість друку</a>
+        <a href="#locations" class="nav-link" data-i18n="nav_locations">Локації автоматів</a>
+        <a href="#pricing" class="nav-link" data-i18n="nav_pricing">Ціни</a>
+        <a href="#partner" class="nav-link" data-i18n="nav_partner">Орендарям ТЦ</a>
+        <a href="#contacts" class="nav-link" data-i18n="nav_contacts">Контакти</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Language Switcher: UK / RU -->
+        <div class="lang-switcher">
+          <button type="button" class="lang-btn active" data-lang="uk">UA</button>
+          <button type="button" class="lang-btn" data-lang="ru">RU</button>
+        </div>
+
+        <a href="#locations" class="btn-primary header-cta" data-i18n="nav_cta">Знайти автомат</a>
+
+        <button type="button" class="burger-btn" id="burger-btn" aria-label="Меню">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Hero Section ─────────────────────────────────────────── -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="section-badge" data-i18n="hero_badge">⚡ МЕРЕЖА АВТОМАТІВ №1 В УКРАЇНІ</div>
+        <h1 class="hero-title">
+          <span data-i18n="hero_title_1">Твій унікальний чохол</span><br>
+          <span data-i18n="hero_title_2">за 3 хвилини в автоматі</span>
+        </h1>
+        <p class="hero-desc" data-i18n="hero_desc">
+          Перша інноваційна мережа автоматів миттєвого UV-фотодруку на чохлах для будь-яких моделей смартфонів. Завантажуй улюблене фото по QR-коду та забирай готовий шедевр прямо зараз!
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#locations" class="btn-primary" data-i18n="hero_btn_locations">📍 Адреси автоматів</a>
+          <a href="#designer" class="btn-secondary" data-i18n="hero_btn_designer">🎨 Приміряти свій дизайн</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3 data-i18n="hero_stat_1_val">3 хв</h3>
+            <p data-i18n="hero_stat_1_lbl">Час друку</p>
+          </div>
+          <div class="stat-item">
+            <h3 data-i18n="hero_stat_2_val">1440 DPI</h3>
+            <p data-i18n="hero_stat_2_lbl">Японський UV-друк</p>
+          </div>
+          <div class="stat-item">
+            <h3 data-i18n="hero_stat_3_val">2+ роки</h3>
+            <p data-i18n="hero_stat_3_lbl">Гарантія стійкості</p>
+          </div>
+          <div class="stat-item">
+            <h3 data-i18n="hero_stat_4_val">100+</h3>
+            <p data-i18n="hero_stat_4_lbl">Моделей смартфонів</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Phone Showcase -->
+      <div class="hero-visual">
+        <div class="showcase-phone-card">
+          <div class="showcase-art-surface"></div>
+          <div class="camera-island">
+            <div class="lens-grid">
+              <div class="lens"></div>
+              <div class="lens"></div>
+              <div class="lens"></div>
+              <div class="lens"></div>
+            </div>
+          </div>
+          <div class="showcase-badge-floating">
+            <span>⚡ UV Ultra-HD</span>
+            <span>•</span>
+            <span>2 хв 45 сек</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Interactive Case Designer Simulator ──────────────────── -->
+  <section class="designer-section" id="designer">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge" data-i18n="designer_badge">🎨 ІНТЕРАКТИВНИЙ КОНСТРУКТОР</div>
+        <h2 class="section-title" data-i18n="designer_title">Спробуй онлайн-примірку чохла</h2>
+        <p class="section-desc" data-i18n="designer_desc">
+          Подивись, як виглядатиме твій смартфон з власним принтом перед тим, як підійти до автомата!
+        </p>
+      </div>
+
+      <div class="glass-card designer-wrapper">
+        <!-- Phone Visual Mockup -->
+        <div class="phone-preview-col">
+          <div class="phone-mockup-wrapper" id="phone-mockup" data-base-color="black">
+            <div class="case-surface" id="case-print-surface"></div>
+            <div class="camera-island iphone-pro" id="camera-cutout">
+              <div class="camera-lens-sim"></div>
+            </div>
+          </div>
+          <div style="margin-top: 18px; width: 100%; max-width: 310px;">
+            <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 6px;">Масштаб фото (Zoom):</label>
+            <input type="range" id="scale-range" min="0.8" max="2" step="0.05" value="1" style="width: 100%; accent-color: var(--accent-cyan);">
+          </div>
+        </div>
+
+        <!-- Simulator Controls -->
+        <div class="designer-controls">
+          <!-- 1. Brand & Model -->
+          <div class="control-group">
+            <label data-i18n="designer_brand_label">Бренд смартфона:</label>
+            <select class="select-custom" id="designer-brand">
+              <option value="apple">Apple iPhone</option>
+              <option value="samsung">Samsung Galaxy</option>
+              <option value="xiaomi">Xiaomi / Redmi / POCO</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label data-i18n="designer_model_label">Модель:</label>
+            <select class="select-custom" id="designer-model">
+              <!-- Динамічно заповнюється скриптом -->
+            </select>
+          </div>
+
+          <!-- 2. Case Base Color -->
+          <div class="control-group">
+            <label data-i18n="designer_case_color_label">Колір основи чохла:</label>
+            <div class="color-swatches-grid">
+              <button type="button" class="color-swatch active" data-color="black">
+                <span class="swatch-circle" style="background: #111;"></span>
+                <span data-i18n="color_black">Матовий чорний</span>
+              </button>
+              <button type="button" class="color-swatch" data-color="clear">
+                <span class="swatch-circle" style="background: #e2e8f0;"></span>
+                <span data-i18n="color_clear">Прозорий</span>
+              </button>
+              <button type="button" class="color-swatch" data-color="neon">
+                <span class="swatch-circle" style="background: linear-gradient(135deg, #a855f7, #06b6d4);"></span>
+                <span data-i18n="color_neon">Неон</span>
+              </button>
+              <button type="button" class="color-swatch" data-color="white">
+                <span class="swatch-circle" style="background: #ffffff;"></span>
+                <span data-i18n="color_white">Білий</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Photo Upload -->
+          <div class="control-group">
+            <label data-i18n="designer_upload_label">Завантажити власне фото / арт:</label>
+            <div class="upload-box">
+              <input type="file" id="case-file-upload" accept="image/*">
+              <div class="upload-icon">📸</div>
+              <div class="upload-text" data-i18n="designer_upload_btn">📁 Обрати файл зі смартфона / ПК</div>
+              <div class="upload-sub">Підтримуються JPG, PNG, WEBP будь-якого розміру</div>
+            </div>
+          </div>
+
+          <!-- 4. Quick Presets -->
+          <div class="control-group">
+            <label data-i18n="designer_presets_label">Або обери популярний арт з каталогу:</label>
+            <div class="presets-grid" id="presets-container"></div>
+          </div>
+
+          <div class="designer-summary">
+            <div>
+              <div style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="designer_price_from">Ціна друку в автоматі:</div>
+              <div class="summary-price-val">від 249 грн</div>
+              <div style="font-size: 0.8rem; color: var(--accent-green);" data-i18n="designer_time_est">Час друку: ~2 хв 45 сек</div>
+            </div>
+            <button type="button" class="btn-primary" id="btn-generate-code" data-i18n="designer_generate_code">
+              📲 Отримати код для автомата
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Steps (How It Works) ─────────────────────────────────── -->
+  <section class="how-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge" data-i18n="how_badge">🚀 ПРОСТО ЯК 1-2-3</div>
+        <h2 class="section-title" data-i18n="how_title">Як надрукувати чохол в автоматі?</h2>
+        <p class="section-desc" data-i18n="how_desc">
+          Весь процес автоматизований і займає менше 3 хвилин від підходу до отримання готового чохла.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="glass-card step-card">
+          <div class="step-num" data-i18n="step_1_num">01</div>
+          <h3 data-i18n="step_1_title">Обери модель смартфона</h3>
+          <p data-i18n="step_1_desc">
+            На великому сенсорному екрані обери бренд і точну модель свого телефону. У наявності понад 100 моделей iPhone, Samsung, Xiaomi та інших.
+          </p>
+        </div>
+
+        <div class="glass-card step-card">
+          <div class="step-num" data-i18n="step_2_num">02</div>
+          <h3 data-i18n="step_2_title">Завантаж дизайн або фото</h3>
+          <p data-i18n="step_2_desc">
+            Відскануй QR-код камерою свого смартфона та обери будь-яке фото з галереї чи Instagram, або обери топовий арт із вбудованого каталогу.
+          </p>
+        </div>
+
+        <div class="glass-card step-card">
+          <div class="step-num" data-i18n="step_3_num">03</div>
+          <h3 data-i18n="step_3_title">Забери готовий шедевр за 3 хв</h3>
+          <p data-i18n="step_3_desc">
+            Оплати зручним способом (карткою, телефоном) і спостерігай через прозоре вікно за процесом нанесення UV-чорнил та фінішного лаку!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Quality & Technology ─────────────────────────────────── -->
+  <section class="quality-section" id="quality">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge" data-i18n="quality_badge">💎 НАДІЙНІСТЬ ТА ДОВГОВІЧНІСТЬ</div>
+        <h2 class="section-title" data-i18n="quality_title">Чому наші чохли служать роками?</h2>
+        <p class="section-desc" data-i18n="quality_desc">
+          Ми використовуємо промислове японське обладнання та сертифіковані полімерні матеріали преміум-класу.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="glass-card feat-card">
+          <div class="feat-icon-box">🇯🇵</div>
+          <h3 data-i18n="feat_1_title">Японські UV-чорнила Mimaki</h3>
+          <p data-i18n="feat_1_desc">Полімеризуються миттєво під ультрафіолетом. Зображення не вигорає на сонці, не боїться спирту, мила та вологи.</p>
+        </div>
+
+        <div class="glass-card feat-card">
+          <div class="feat-icon-box">🛡️</div>
+          <h3 data-i18n="feat_2_title">Антиударний гібридний захист</h3>
+          <p data-i18n="feat_2_desc">Бортики з амортизуючого TPU пом'якшують падіння з висоти до 2 метрів, а задня пластина захищає скло телефону.</p>
+        </div>
+
+        <div class="glass-card feat-card">
+          <div class="feat-icon-box">✨</div>
+          <h3 data-i18n="feat_3_title">Покриття Soft-Touch та Лак</h3>
+          <p data-i18n="feat_3_desc">Приємна тактильна текстура або глянцевий об'ємний лак. Чохол приємно лежить у руці та не вислизає.</p>
+        </div>
+
+        <div class="glass-card feat-card">
+          <div class="feat-icon-box">🎯</div>
+          <h3 data-i18n="feat_4_title">Точні вирізи та кнопки</h3>
+          <p data-i18n="feat_4_desc">Ідеальна сумісність з роз'ємами зарядки, динаміками та бездротовою зарядкою MagSafe / Qi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Locations Section ────────────────────────────────────── -->
+  <section class="locations-section" id="locations">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge" data-i18n="locations_badge">📍 АДРЕСИ АВТОМАТІВ</div>
+        <h2 class="section-title" data-i18n="locations_title">Де знайти наші автомати?</h2>
+        <p class="section-desc" data-i18n="locations_desc">
+          Шукайте стильні автомати PrintCase у популярних торгових центрах. Мережа активно розширюється!
+        </p>
+      </div>
+
+      <!-- Список локацій генерується динамічно з locations.js -->
+      <div class="locations-grid" id="locations-grid"></div>
+    </div>
+  </section>
+
+  <!-- ── Pricing Section ──────────────────────────────────────── -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge" data-i18n="pricing_badge">💰 ДОСТУПНІ ЦІНИ</div>
+        <h2 class="section-title" data-i18n="pricing_title">Вартість друку</h2>
+        <p class="section-desc" data-i18n="pricing_desc">
+          Жодних прихованих переплат. У вартість уже входить сам преміальний чохол і нанесення вашого фото.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="glass-card pricing-card">
+          <h3 data-i18n="price_card_1_title">Стандартний Друк</h3>
+          <div class="price-val" data-i18n="price_card_1_cost">249 грн</div>
+          <div class="price-sub" data-i18n="price_card_1_sub">Класичний матовий або глянець</div>
+          <ul class="price-features">
+            <li><span class="feat-check">✓</span> <span data-i18n="price_card_1_f1">Чохол під вашу модель смартфона</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="price_card_1_f2">Будь-яке ваше фото або картинка</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="price_card_1_f3">Стійкість до стирання 1+ рік</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="price_card_1_f4">Готовність за 3 хвилини</span></li>
+          </ul>
+          <a href="#locations" class="btn-secondary" data-i18n="price_card_1_btn">Надрукувати в автоматі</a>
+        </div>
+
+        <div class="glass-card pricing-card featured">
+          <div class="popular-badge" data-i18n="price_card_2_badge">🔥 ХІТ ПРОДАЖІВ</div>
+          <h3 data-i18n="price_card_2_title">Преміум Soft-Touch + Лак</h3>
+          <div class="price-val" data-i18n="price_card_2_cost">299 грн</div>
+          <div class="price-sub" data-i18n="price_card_2_sub">Ультрачіткість та захисне покриття</div>
+          <ul class="price-features">
+            <li><span class="feat-check">✓</span> <span data-i18n="price_card_2_f1">Високоякісний протиударний чохол</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="price_card_2_f2">Вибірковий глянцевий 3D-лак</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="price_card_2_f3">Тактильне покриття Soft-Touch</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="price_card_2_f4">Підвищений захист камер і бортиків</span></li>
+          </ul>
+          <a href="#locations" class="btn-primary" data-i18n="price_card_2_btn">Обрати в автоматі</a>
+        </div>
+
+        <div class="glass-card pricing-card">
+          <h3 data-i18n="price_card_3_title">Парний сет (2 чохли)</h3>
+          <div class="price-val" data-i18n="price_card_3_cost">499 грн</div>
+          <div class="price-sub" data-i18n="price_card_3_sub">Для закоханих або друзів</div>
+          <ul class="price-features">
+            <li><span class="feat-check">✓</span> <span data-i18n="price_card_3_f1">2 чохли на будь-які моделі телефонів</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="price_card_3_f2">Єдина композиція / парні фото</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="price_card_3_f3">Вигода 100 грн на парі</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="price_card_3_f4">Ідеальний персоналізований подарунок</span></li>
+          </ul>
+          <a href="#locations" class="btn-secondary" data-i18n="price_card_3_btn">Створити пару</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── B2B / Partnership Section ────────────────────────────── -->
+  <section class="partner-section" id="partner">
+    <div class="container">
+      <div class="glass-card partner-box">
+        <div class="section-badge" data-i18n="partner_badge">🤝 СПІВПРАЦЯ ТА ОРЕНДА</div>
+        <h2 class="section-title" data-i18n="partner_title">Встановіть автомат у вашому ТЦ</h2>
+        <p class="section-desc" data-i18n="partner_desc">
+          Шукаєте високоприбутковий і стильний сервіс для вашого торгового центру, бізнес-центру чи кінотеатру? Пропонуємо взаємовигідну оренду площі під автомат PrintCase.
+        </p>
+
+        <div class="partner-grid">
+          <div class="partner-item">
+            <h3 data-i18n="partner_f1_title">Всього 1 кв.м площі</h3>
+            <p data-i18n="partner_f1_desc">Потрібна лише стандартна розетка 220V та 1 кв.м для розміщення стильного кіоску.</p>
+          </div>
+          <div class="partner-item">
+            <h3 data-i18n="partner_f2_title">Потужний магніт для молоді</h3>
+            <p data-i18n="partner_f2_desc">Генерує додатковий цільовий потік відвідувачів 14-35 років, які активно діляться фото в соцмережах.</p>
+          </div>
+          <div class="partner-item">
+            <h3 data-i18n="partner_f3_title">Стабільна орендна плата</h3>
+            <p data-i18n="partner_f3_desc">Оплата оренди завжди вчасно, повне технічне обслуговування та чистота за наш рахунок.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 24px;">
+          <a href="https://t.me/pentestyou" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="partner_btn">
+            💬 Обговорити встановлення
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ Section ──────────────────────────────────────────── -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge" data-i18n="faq_badge">❓ ЗАПИТАННЯ ТА ВІДПОВІДІ</div>
+        <h2 class="section-title" data-i18n="faq_title">Часті запитання</h2>
+      </div>
+
+      <div class="faq-container">
+        <div class="glass-card faq-item open">
+          <div class="faq-question">
+            <span data-i18n="faq_q1">Чи не зітреться фарба з часом?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a1">
+            Ні! Ми використовуємо справжній промисловий UV-друк (ультрафіолетова полімеризація). Фарба запікається намертво в структуру матеріалу під впливом УФ-лампи і покривається захисним лаком. Чохол стійкий до тертя в кишені, води та спиртових антисептиків.
+          </div>
+        </div>
+
+        <div class="glass-card faq-item">
+          <div class="faq-question">
+            <span data-i18n="faq_q2">Чи є чохол саме на мою модель телефону?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a2">
+            Так! Наші автомати оснащені запасом найпопулярніших чохлів: від iPhone 11 до iPhone 16 Pro Max, а також флагмани та хіти Samsung Galaxy, Xiaomi, Redmi, POCO. Навіть якщо моделі немає в наявності прямо зараз, ви можете оформити доставку прямо біля автомата.
+          </div>
+        </div>
+
+        <div class="glass-card faq-item">
+          <div class="faq-question">
+            <span data-i18n="faq_q3">Як завантажити своє фото в автомат?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a3">
+            Дуже легко! На екрані автомата з'явиться QR-код. Ви скануєте його камерою телефону, відкривається проста сторінка, куди ви завантажуєте фото з галереї. Ніяких проводів, додатків чи реєстрацій не потрібно!
+          </div>
+        </div>
+
+        <div class="glass-card faq-item">
+          <div class="faq-question">
+            <span data-i18n="faq_q4">Які способи оплати підтримуються?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a4">
+            Автомат приймає безконтактну оплату будь-якими банківськими картками (Visa, Mastercard), Apple Pay, Google Pay, а також готівкові купюри.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contacts Section ─────────────────────────────────────── -->
+  <section class="contact-section" id="contacts">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge" data-i18n="contact_badge">📞 ЗВ'ЯЗОК З НАМИ</div>
+        <h2 class="section-title" data-i18n="contact_title">Маєте запитання або пропозицію?</h2>
+        <p class="section-desc" data-i18n="contact_desc">
+          Ми завжди на зв'язку. Пишіть нам у Telegram або телефонуйте з будь-яких питань підтримки та співпраці.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Telegram Contact Card -->
+        <div class="glass-card contact-card">
+          <div class="contact-icon-large">✈️</div>
+          <div class="contact-info">
+            <h3 data-i18n="contact_tg_title">Telegram підтримка та оренда:</h3>
+            <div class="contact-val">@pentestyou</div>
+            <p class="contact-sub">Швидка відповідь протягом 5-10 хвилин</p>
+            <a href="https://t.me/pentestyou" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="contact_btn_tg">
+              Написати в Telegram
+            </a>
+          </div>
+        </div>
+
+        <!-- Phone Contact Card -->
+        <div class="glass-card contact-card">
+          <div class="contact-icon-large">📞</div>
+          <div class="contact-info">
+            <h3 data-i18n="contact_phone_title">Телефон для зв'язку:</h3>
+            <div class="contact-val copy-phone" style="cursor: pointer;" title="Клікніть, щоб скопіювати">+380678918905</div>
+            <p class="contact-sub" data-i18n="contact_hours_val">Щодня, цілодобово 24/7 (клікніть для копіювання)</p>
+            <a href="tel:+380678918905" class="btn-secondary" data-i18n="contact_btn_call">
+              Зателефонувати
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="#" class="logo">
+            <div class="logo-icon">📱</div>
+            <div class="logo-text">Print<span>Case</span><span class="logo-tag">EXPRESS</span></div>
+          </a>
+          <p class="footer-desc" data-i18n="footer_desc">
+            Перша українська мережа інноваційних автоматів швидкого фотодруку на чохлах смартфонів. Створи свій стиль за 3 хвилини!
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <a href="https://t.me/pentestyou" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 20px;">
+            ✈️ Telegram @pentestyou
+          </a>
+          <a href="tel:+380678918905" class="btn-secondary" style="padding: 10px 20px;">
+            📞 +380678918905
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 PrintCase Express. <span data-i18n="footer_rights">Всі права захищено.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Floating Action Buttons (Telegram & Call) ────────────── -->
+  <div class="floating-widget">
+    <a href="https://t.me/pentestyou" target="_blank" rel="noopener noreferrer" class="floating-btn floating-tg" title="Написати в Telegram">
+      ✈️
+    </a>
+    <a href="tel:+380678918905" class="floating-btn floating-phone" title="Зателефонувати">
+      📞
+    </a>
+  </div>
+
+  <!-- ── Modal: Vending QR & Code ─────────────────────────────── -->
+  <div class="modal-overlay" id="qr-modal">
+    <div class="modal-content">
+      <button type="button" class="modal-close-btn" id="modal-close">✕</button>
+      <h3 style="font-size: 1.5rem; margin-bottom: 8px;" data-i18n="designer_code_modal_title">Твій макет готовий!</h3>
+      <p style="color: var(--text-secondary); font-size: 0.9rem;" data-i18n="designer_code_modal_desc">
+        Покажи цей QR-код сканеру на автоматі або введи код для миттєвого друку:
+      </p>
+
+      <div class="qr-code-box">
+        <!-- SVG Simulated QR Code -->
+        <svg viewBox="0 0 100 100" fill="#111">
+          <rect x="0" y="0" width="30" height="30" fill="#111"/>
+          <rect x="5" y="5" width="20" height="20" fill="#fff"/>
+          <rect x="10" y="10" width="10" height="10" fill="#111"/>
+          <rect x="70" y="0" width="30" height="30" fill="#111"/>
+          <rect x="75" y="5" width="20" height="20" fill="#fff"/>
+          <rect x="80" y="10" width="10" height="10" fill="#111"/>
+          <rect x="0" y="70" width="30" height="30" fill="#111"/>
+          <rect x="5" y="75" width="20" height="20" fill="#fff"/>
+          <rect x="10" y="80" width="10" height="10" fill="#111"/>
+          <rect x="40" y="10" width="8" height="8"/>
+          <rect x="50" y="20" width="8" height="8"/>
+          <rect x="40" y="40" width="15" height="15"/>
+          <rect x="70" y="45" width="10" height="8"/>
+          <rect x="45" y="70" width="10" height="10"/>
+          <rect x="75" y="75" width="12" height="12"/>
+        </svg>
+      </div>
+
+      <div class="code-display" id="generated-code-value">PC-89104</div>
+      <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 20px;">
+        Локація: <b>ТЦ «Орнава», Тернопіль</b> (1-й поверх)
+      </p>
+
+      <a href="#locations" class="btn-primary" style="width: 100%;" onclick="document.getElementById('qr-modal').classList.remove('open')">
+        📍 Знайти автомат у ТЦ
+      </a>
+    </div>
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="js/locations.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
